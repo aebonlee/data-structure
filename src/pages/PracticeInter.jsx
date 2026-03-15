@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEOHead';
 import useAOS from '../hooks/useAOS';
 
@@ -126,38 +127,27 @@ const PracticeInter = () => {
                 <div key={q.id} className="exercise-box" data-aos="fade-up" data-aos-delay={idx * 50}>
                   <h3>문제 {q.id}.</h3>
                   <p><strong>{q.q}</strong></p>
-                  <div style={{ marginTop: '12px' }}>
+                  <div className="quiz-options-area">
                     {q.opts.map((opt) => {
                       const val = opt.charAt(0);
                       const isSelected = selected === val;
-                      let optionStyle = {
-                        display: 'block',
-                        padding: '10px 16px',
-                        margin: '6px 0',
-                        borderRadius: '8px',
-                        border: '1px solid var(--border-light)',
-                        cursor: submitted ? 'default' : 'pointer',
-                        transition: 'all 0.2s',
-                        background: 'var(--bg-white)',
-                      };
+                      let cls = 'quiz-option';
 
                       if (submitted) {
+                        cls += ' quiz-option--disabled';
                         if (val === q.ans) {
-                          optionStyle.background = '#dcfce7';
-                          optionStyle.borderColor = '#22c55e';
+                          cls += ' quiz-option--correct';
                         } else if (isSelected && !isCorrect) {
-                          optionStyle.background = '#fee2e2';
-                          optionStyle.borderColor = '#ef4444';
+                          cls += ' quiz-option--wrong';
                         }
                       } else if (isSelected) {
-                        optionStyle.background = 'var(--primary-blue-bg)';
-                        optionStyle.borderColor = 'var(--primary-blue)';
+                        cls += ' quiz-option--selected';
                       }
 
                       return (
                         <label
                           key={val}
-                          style={optionStyle}
+                          className={cls}
                           onClick={() => handleSelect(q.id, val)}
                         >
                           <input
@@ -165,7 +155,7 @@ const PracticeInter = () => {
                             name={`q${q.id}`}
                             checked={isSelected}
                             onChange={() => handleSelect(q.id, val)}
-                            style={{ marginRight: '8px' }}
+                            className="quiz-radio"
                             disabled={submitted}
                           />
                           {opt}
@@ -174,14 +164,7 @@ const PracticeInter = () => {
                     })}
                   </div>
                   {submitted && (
-                    <div style={{
-                      marginTop: '12px',
-                      padding: '12px 16px',
-                      background: isCorrect ? '#f0fdf4' : '#fef2f2',
-                      borderRadius: '8px',
-                      fontSize: '14px',
-                      lineHeight: 1.7,
-                    }}>
+                    <div className={`quiz-explanation ${isCorrect ? 'quiz-explanation--correct' : 'quiz-explanation--wrong'}`}>
                       <strong>{isCorrect ? '정답!' : `오답 (정답: ${q.ans})`}</strong>
                       <br />
                       {q.exp}
@@ -191,7 +174,7 @@ const PracticeInter = () => {
               );
             })}
 
-            <div style={{ textAlign: 'center', marginTop: '32px' }} data-aos="fade-up">
+            <div className="quiz-submit-area" data-aos="fade-up">
               {!submitted ? (
                 <button
                   className="btn btn-primary"
@@ -205,6 +188,11 @@ const PracticeInter = () => {
                   다시 풀기
                 </button>
               )}
+            </div>
+
+            <div className="lesson-nav" data-aos="fade-up">
+              <Link to="/practice/basic" className="lesson-nav-btn prev">&larr; 기초 문제</Link>
+              <Link to="/references" className="lesson-nav-btn next">참고자료 &rarr;</Link>
             </div>
 
           </div>

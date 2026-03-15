@@ -1,39 +1,29 @@
 import { Link } from 'react-router-dom';
-import { useLanguage } from '../contexts/LanguageContext';
 import SEOHead from '../components/SEOHead';
 import useAOS from '../hooks/useAOS';
-import site from '../config/site';
 
 const Complexity = () => {
-  const { t } = useLanguage();
   useAOS();
 
   return (
     <>
       <SEOHead
-        title={`시간 복잡도와 공간 복잡도 - ${site.nameKo}`}
+        title="시간 복잡도와 공간 복잡도 | DS Study"
         description="Big-O 표기법, 시간 복잡도와 공간 복잡도의 개념, 주요 복잡도 비교 및 분석 방법을 학습합니다."
       />
 
-      {/* Page Header */}
-      <div className="page-header">
+      <section className="page-header">
         <div className="container">
-          <div className="page-header-content" data-aos="fade-up">
-            <h1 className="page-title">시간 복잡도와 공간 복잡도</h1>
-            <p className="page-subtitle">
-              알고리즘의 성능을 객관적으로 분석하고 비교하기 위한 핵심 도구인 Big-O 표기법을 학습합니다.
-            </p>
-          </div>
+          <h1>시간 복잡도와 공간 복잡도</h1>
+          <p>알고리즘의 성능을 객관적으로 분석하고 비교하기 위한 핵심 도구인 Big-O 표기법을 학습합니다.</p>
         </div>
-      </div>
+      </section>
 
-      {/* Lesson Content */}
-      <div className="lesson-content">
+      <section className="section lesson-content">
         <div className="container">
-          <div className="lesson-body" data-aos="fade-up">
+          <div className="lesson-body">
 
-            {/* Section 1: Big-O 표기법 */}
-            <h2 className="lesson-subtitle" id="big-o">Big-O 표기법</h2>
+            <h2 id="big-o">Big-O 표기법</h2>
             <p>
               <strong>Big-O 표기법</strong>은 알고리즘의 성능을 입력 크기(n)에 대한 함수로
               표현하는 수학적 표기법입니다. 알고리즘이 실행되는 데 필요한 시간이나 공간이
@@ -46,7 +36,7 @@ const Complexity = () => {
             </p>
 
             <div className="callout-box">
-              <strong>Big-O의 핵심 규칙:</strong>
+              <h3>Big-O의 핵심 규칙</h3>
               <ul>
                 <li>상수는 무시한다: O(2n) = O(n), O(500) = O(1)</li>
                 <li>최고차항만 남긴다: O(n&sup2; + 3n + 10) = O(n&sup2;)</li>
@@ -55,9 +45,7 @@ const Complexity = () => {
             </div>
 
             <div className="code-block">
-              <div className="code-header">
-                <span>Python - Big-O 표기법 기본 예시</span>
-              </div>
+              <div className="code-header">Python - Big-O 표기법 기본 예시</div>
               <pre><code>{`# O(1) - 상수 시간: 입력 크기와 무관
 def get_first(arr):
     return arr[0]  # 항상 한 번의 연산
@@ -79,8 +67,7 @@ def has_duplicate(arr):
     return False`}</code></pre>
             </div>
 
-            {/* Section 2: 시간 복잡도 분석 */}
-            <h2 className="lesson-subtitle" id="time-complexity">시간 복잡도 분석</h2>
+            <h2 id="time-complexity">시간 복잡도 분석</h2>
             <p>
               <strong>시간 복잡도(Time Complexity)</strong>는 알고리즘이 실행되는 데 필요한
               연산 횟수를 입력 크기의 함수로 표현한 것입니다. 실제 실행 시간은 하드웨어에
@@ -100,9 +87,7 @@ def has_duplicate(arr):
             </p>
 
             <div className="code-block">
-              <div className="code-header">
-                <span>Python - 시간 복잡도 분석 예시</span>
-              </div>
+              <div className="code-header">Python - 시간 복잡도 분석 예시</div>
               <pre><code>{`# 예시: 선형 탐색(Linear Search)
 def linear_search(arr, target):
     for i in range(len(arr)):  # 최악의 경우 n번 반복
@@ -132,8 +117,7 @@ def binary_search(arr, target):
 # 최악의 경우: O(log n) - 매번 절반씩 줄어드므로 log₂(n)번 반복`}</code></pre>
             </div>
 
-            {/* Section 3: 주요 복잡도 비교 */}
-            <h2 className="lesson-subtitle" id="comparison">주요 복잡도 비교</h2>
+            <h2 id="comparison">주요 복잡도 비교</h2>
             <p>
               아래 표는 주요 시간 복잡도를 증가율 순서대로 정리한 것입니다.
               n이 커질수록 복잡도 차이가 극적으로 벌어지는 것을 확인할 수 있습니다.
@@ -219,16 +203,17 @@ def binary_search(arr, target):
             </table>
 
             <div className="callout-box">
-              <strong>성능 비교 기준:</strong> 일반적으로 O(n log n)까지는 대부분의
-              입력 크기에서 실용적으로 사용할 수 있지만, O(n&sup2;) 이상은 입력이 커지면
-              실행 시간이 급격히 증가하여 주의가 필요합니다. 코딩 테스트에서 n이 10만 이상이면
-              O(n log n) 이하의 알고리즘을 사용해야 합니다.
+              <h3>성능 비교 기준</h3>
+              <p>
+                일반적으로 O(n log n)까지는 대부분의
+                입력 크기에서 실용적으로 사용할 수 있지만, O(n&sup2;) 이상은 입력이 커지면
+                실행 시간이 급격히 증가하여 주의가 필요합니다. 코딩 테스트에서 n이 10만 이상이면
+                O(n log n) 이하의 알고리즘을 사용해야 합니다.
+              </p>
             </div>
 
             <div className="code-block">
-              <div className="code-header">
-                <span>Python - 복잡도별 실행 시간 비교 실험</span>
-              </div>
+              <div className="code-header">Python - 복잡도별 실행 시간 비교 실험</div>
               <pre><code>{`import time
 
 def measure_time(func, *args):
@@ -271,8 +256,7 @@ print(f"O(n²)      : {t2:.6f}초")
 print(f"O(n log n) : {t3:.6f}초")`}</code></pre>
             </div>
 
-            {/* Section 4: 공간 복잡도 */}
-            <h2 className="lesson-subtitle" id="space-complexity">공간 복잡도</h2>
+            <h2 id="space-complexity">공간 복잡도</h2>
             <p>
               <strong>공간 복잡도(Space Complexity)</strong>는 알고리즘이 실행되는 동안
               사용하는 메모리의 양을 입력 크기의 함수로 표현한 것입니다. 시간 복잡도만큼
@@ -291,9 +275,7 @@ print(f"O(n log n) : {t3:.6f}초")`}</code></pre>
             </ul>
 
             <div className="code-block">
-              <div className="code-header">
-                <span>Python - 공간 복잡도 분석 예시</span>
-              </div>
+              <div className="code-header">Python - 공간 복잡도 분석 예시</div>
               <pre><code>{`# O(1) 공간 - 추가 공간을 상수만큼만 사용
 def find_max(arr):
     max_val = arr[0]     # 변수 1개: O(1)
@@ -325,23 +307,23 @@ def create_matrix(n):
             </div>
 
             <div className="callout-box">
-              <strong>시간-공간 트레이드오프 (Trade-off):</strong> 많은 경우 시간 복잡도를
-              줄이기 위해 추가 공간을 사용하거나, 공간을 절약하기 위해 더 많은 시간을
-              소요하는 트레이드오프가 발생합니다. 예를 들어, 해시 테이블은 O(n)의 추가
-              공간을 사용하여 O(1)의 검색 시간을 달성합니다.
+              <h3>시간-공간 트레이드오프 (Trade-off)</h3>
+              <p>
+                많은 경우 시간 복잡도를
+                줄이기 위해 추가 공간을 사용하거나, 공간을 절약하기 위해 더 많은 시간을
+                소요하는 트레이드오프가 발생합니다. 예를 들어, 해시 테이블은 O(n)의 추가
+                공간을 사용하여 O(1)의 검색 시간을 달성합니다.
+              </p>
             </div>
 
-            {/* Section 5: 복잡도 분석 예제 */}
-            <h2 className="lesson-subtitle" id="analysis-examples">복잡도 분석 예제</h2>
+            <h2 id="analysis-examples">복잡도 분석 예제</h2>
             <p>
               실전에서 알고리즘의 복잡도를 분석하는 연습을 해봅시다. 각 코드의 시간
               복잡도와 공간 복잡도를 단계별로 분석합니다.
             </p>
 
             <div className="code-block">
-              <div className="code-header">
-                <span>Python - 예제 1: 중복 원소 제거</span>
-              </div>
+              <div className="code-header">Python - 예제 1: 중복 원소 제거</div>
               <pre><code>{`# 방법 1: 이중 루프 사용
 # 시간 복잡도: O(n²), 공간 복잡도: O(n)
 def remove_duplicates_v1(arr):
@@ -369,9 +351,7 @@ def remove_duplicates_v2(arr):
             </div>
 
             <div className="code-block">
-              <div className="code-header">
-                <span>Python - 예제 2: 두 수의 합 (Two Sum)</span>
-              </div>
+              <div className="code-header">Python - 예제 2: 두 수의 합 (Two Sum)</div>
               <pre><code>{`# 문제: 배열에서 두 수의 합이 target인 인덱스 쌍 찾기
 
 # 방법 1: 브루트포스
@@ -403,9 +383,7 @@ print(two_sum_hash(arr, target))   # [0, 1]
             </div>
 
             <div className="code-block">
-              <div className="code-header">
-                <span>Python - 예제 3: 재귀 알고리즘의 복잡도</span>
-              </div>
+              <div className="code-header">Python - 예제 3: 재귀 알고리즘의 복잡도</div>
               <pre><code>{`# 피보나치 수열 - 재귀 버전
 # 시간: O(2ⁿ), 공간: O(n) - 재귀 호출 스택
 def fib_recursive(n):
@@ -449,13 +427,12 @@ print(f"반복문:     fib({n}) = {fib_iterative(n)}, "
       f"시간: {time.time()-start:.6f}초")`}</code></pre>
             </div>
 
-            {/* Exercise Box */}
             <div className="exercise-box">
-              <h3 className="exercise-title">연습 문제</h3>
-              <ol className="exercise-list">
+              <h3>연습 문제</h3>
+              <ol>
                 <li>
                   다음 코드의 시간 복잡도를 Big-O로 표현하세요:
-                  <div className="code-block" style={{ marginTop: '12px' }}>
+                  <div className="code-block">
                     <pre><code>{`def mystery(n):
     count = 0
     i = 1
@@ -479,23 +456,14 @@ print(f"반복문:     fib({n}) = {fib_iterative(n)}, "
               </ol>
             </div>
 
-            {/* Lesson Navigation */}
             <div className="lesson-nav">
-              <div className="lesson-nav-left">
-                <Link to="/intro/what-is-ds" className="btn btn-secondary">
-                  &larr; 이전: 자료구조란?
-                </Link>
-              </div>
-              <div className="lesson-nav-right">
-                <Link to="/linear/array" className="btn btn-primary">
-                  다음: 배열 &rarr;
-                </Link>
-              </div>
+              <Link to="/intro/what-is-ds" className="lesson-nav-btn prev">&larr; 이전: 자료구조란?</Link>
+              <Link to="/linear" className="lesson-nav-btn next">다음: 선형 자료구조 &rarr;</Link>
             </div>
 
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 };

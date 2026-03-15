@@ -336,7 +336,7 @@ print(trie.autocomplete("xyz"))
             </div>
 
             <div className="lesson-nav" data-aos="fade-up">
-              <Link to="/algorithm/search" className="lesson-nav-btn prev">&larr; 탐색 알고리즘</Link>
+              <Link to="/advanced" className="lesson-nav-btn prev">&larr; 고급 자료구조</Link>
               <Link to="/advanced/segment-tree" className="lesson-nav-btn next">세그먼트 트리 &rarr;</Link>
             </div>
 

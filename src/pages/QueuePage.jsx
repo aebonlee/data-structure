@@ -12,110 +12,69 @@ const QueuePage = () => {
         description="큐의 개념(FIFO), 주요 연산, 원형 큐, 우선순위 큐, 활용 사례를 학습합니다."
       />
 
-      {/* Page Header */}
-      <div className="page-header" style={{
-        background: 'var(--hero-bg)',
-        color: '#fff',
-        padding: 'calc(var(--nav-height) + 40px) 0 60px',
-      }}>
+      <section className="page-header">
         <div className="container">
-          <p style={{ fontSize: '14px', opacity: 0.8, marginBottom: '8px' }}>
-            선형 자료구조
-          </p>
-          <h1 style={{ fontSize: '48px', fontWeight: 700, marginBottom: '16px' }}>
-            큐 (Queue)
-          </h1>
-          <p style={{ fontSize: '18px', opacity: 0.9, maxWidth: '700px', lineHeight: 1.7 }}>
-            큐는 선입선출(FIFO) 원칙을 따르는 자료구조로, 가장 먼저 삽입된 데이터가 가장 먼저 제거됩니다.
-          </p>
+          <h1>큐 (Queue)</h1>
+          <p>큐는 선입선출(FIFO) 원칙을 따르는 자료구조로, 가장 먼저 삽입된 데이터가 가장 먼저 제거됩니다.</p>
         </div>
-      </div>
+      </section>
 
-      {/* Lesson Content */}
-      <div className="lesson-content" style={{ padding: 'var(--section-padding) 0' }}>
+      <section className="section lesson-content">
         <div className="container">
-          <div className="lesson-body" style={{ maxWidth: '860px', margin: '0 auto' }}>
+          <div className="lesson-body">
 
-            {/* 큐의 개념 */}
-            <section data-aos="fade-up" style={{ marginBottom: '56px' }}>
-              <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '16px' }}>
-                큐의 개념 (FIFO)
-              </h2>
-              <p style={{ fontSize: '16px', color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: '16px' }}>
-                큐(Queue)는 <strong>선입선출(FIFO: First In, First Out)</strong> 원칙을 따르는 선형 자료구조입니다.
-                은행 창구의 대기줄처럼, 먼저 줄을 선 사람이 먼저 서비스를 받는 구조입니다.
-              </p>
-              <p style={{ fontSize: '16px', color: 'var(--text-secondary)', lineHeight: 1.8 }}>
-                큐는 뒤쪽(rear)에서 데이터를 삽입하고, 앞쪽(front)에서 데이터를 제거합니다.
-                이러한 특성 때문에 작업 스케줄링, 너비 우선 탐색(BFS), 버퍼 관리 등에 널리 활용됩니다.
-              </p>
-            </section>
+            <h2>큐의 개념 (FIFO)</h2>
+            <p>
+              큐(Queue)는 <strong>선입선출(FIFO: First In, First Out)</strong> 원칙을 따르는 선형 자료구조입니다.
+              은행 창구의 대기줄처럼, 먼저 줄을 선 사람이 먼저 서비스를 받는 구조입니다.
+            </p>
+            <p>
+              큐는 뒤쪽(rear)에서 데이터를 삽입하고, 앞쪽(front)에서 데이터를 제거합니다.
+              이러한 특성 때문에 작업 스케줄링, 너비 우선 탐색(BFS), 버퍼 관리 등에 널리 활용됩니다.
+            </p>
 
-            {/* 주요 연산 */}
-            <section data-aos="fade-up" style={{ marginBottom: '56px' }}>
-              <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '16px' }}>
-                주요 연산
-              </h2>
+            <h2>주요 연산</h2>
 
-              <table className="lesson-table" style={{
-                width: '100%',
-                borderCollapse: 'collapse',
-                fontSize: '15px',
-                marginBottom: '24px',
-              }}>
-                <thead>
-                  <tr style={{ background: 'var(--primary-blue)', color: '#fff' }}>
-                    <th style={{ padding: '14px 20px', textAlign: 'left', fontWeight: 600, whiteSpace: 'nowrap' }}>연산</th>
-                    <th style={{ padding: '14px 20px', textAlign: 'center', fontWeight: 600, whiteSpace: 'nowrap' }}>시간 복잡도</th>
-                    <th style={{ padding: '14px 20px', textAlign: 'left', fontWeight: 600 }}>설명</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {[
-                    ['enqueue(item)', 'O(1)', '큐의 뒤쪽(rear)에 요소를 추가합니다.'],
-                    ['dequeue()', 'O(1)', '큐의 앞쪽(front) 요소를 제거하고 반환합니다.'],
-                    ['front() / peek()', 'O(1)', '큐의 앞쪽 요소를 제거하지 않고 반환합니다.'],
-                    ['isEmpty()', 'O(1)', '큐가 비어있는지 확인합니다.'],
-                    ['size()', 'O(1)', '큐에 들어있는 요소의 개수를 반환합니다.'],
-                  ].map(([op, time, desc], i) => (
-                    <tr key={i} style={{
-                      background: i % 2 === 0 ? 'var(--bg-white)' : 'var(--bg-light-gray)',
-                      borderBottom: '1px solid var(--border-light)',
-                    }}>
-                      <td style={{ padding: '12px 20px', fontWeight: 600, color: 'var(--text-primary)', fontFamily: 'monospace', whiteSpace: 'nowrap' }}>{op}</td>
-                      <td style={{ padding: '12px 20px', textAlign: 'center', fontFamily: 'monospace', color: 'var(--primary-blue)', fontWeight: 700 }}>{time}</td>
-                      <td style={{ padding: '12px 20px', color: 'var(--text-secondary)' }}>{desc}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            <table className="lesson-table">
+              <thead>
+                <tr>
+                  <th>연산</th>
+                  <th>시간 복잡도</th>
+                  <th>설명</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>enqueue(item)</td>
+                  <td>O(1)</td>
+                  <td>큐의 뒤쪽(rear)에 요소를 추가합니다.</td>
+                </tr>
+                <tr>
+                  <td>dequeue()</td>
+                  <td>O(1)</td>
+                  <td>큐의 앞쪽(front) 요소를 제거하고 반환합니다.</td>
+                </tr>
+                <tr>
+                  <td>front() / peek()</td>
+                  <td>O(1)</td>
+                  <td>큐의 앞쪽 요소를 제거하지 않고 반환합니다.</td>
+                </tr>
+                <tr>
+                  <td>isEmpty()</td>
+                  <td>O(1)</td>
+                  <td>큐가 비어있는지 확인합니다.</td>
+                </tr>
+                <tr>
+                  <td>size()</td>
+                  <td>O(1)</td>
+                  <td>큐에 들어있는 요소의 개수를 반환합니다.</td>
+                </tr>
+              </tbody>
+            </table>
 
-              <div className="code-block" style={{
-                background: '#1e293b',
-                borderRadius: 'var(--radius-md)',
-                overflow: 'hidden',
-                marginBottom: '24px',
-              }}>
-                <div className="code-header" style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  padding: '12px 20px',
-                  background: '#334155',
-                  fontSize: '13px',
-                  color: '#94a3b8',
-                }}>
-                  <span>Python - 큐 기본 구현</span>
-                </div>
-                <pre style={{
-                  padding: '20px',
-                  color: '#e2e8f0',
-                  fontSize: '14px',
-                  lineHeight: 1.7,
-                  overflow: 'auto',
-                  margin: 0,
-                }}>
-{`from collections import deque
+            <div className="code-block">
+              <div className="code-header">Python - 큐 기본 구현</div>
+              <pre><code>{`from collections import deque
 
 class Queue:
     """deque 기반 큐 구현"""
@@ -155,47 +114,18 @@ q.enqueue("C")
 print(q.front())      # A
 print(q.dequeue())    # A
 print(q.dequeue())    # B
-print(q.size())       # 1`}
-                </pre>
-              </div>
-            </section>
+print(q.size())       # 1`}</code></pre>
+            </div>
 
-            {/* 원형 큐 */}
-            <section data-aos="fade-up" style={{ marginBottom: '56px' }}>
-              <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '16px' }}>
-                원형 큐 (Circular Queue)
-              </h2>
-              <p style={{ fontSize: '16px', color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: '20px' }}>
-                원형 큐는 배열의 끝과 시작이 연결된 형태로, 고정 크기 배열에서 큐를 효율적으로 구현할 수 있습니다.
-                front와 rear 포인터가 배열의 끝에 도달하면 다시 처음으로 돌아가므로 메모리 낭비를 방지합니다.
-              </p>
+            <h2>원형 큐 (Circular Queue)</h2>
+            <p>
+              원형 큐는 배열의 끝과 시작이 연결된 형태로, 고정 크기 배열에서 큐를 효율적으로 구현할 수 있습니다.
+              front와 rear 포인터가 배열의 끝에 도달하면 다시 처음으로 돌아가므로 메모리 낭비를 방지합니다.
+            </p>
 
-              <div className="code-block" style={{
-                background: '#1e293b',
-                borderRadius: 'var(--radius-md)',
-                overflow: 'hidden',
-                marginBottom: '24px',
-              }}>
-                <div className="code-header" style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  padding: '12px 20px',
-                  background: '#334155',
-                  fontSize: '13px',
-                  color: '#94a3b8',
-                }}>
-                  <span>Python - 원형 큐 구현</span>
-                </div>
-                <pre style={{
-                  padding: '20px',
-                  color: '#e2e8f0',
-                  fontSize: '14px',
-                  lineHeight: 1.7,
-                  overflow: 'auto',
-                  margin: 0,
-                }}>
-{`class CircularQueue:
+            <div className="code-block">
+              <div className="code-header">Python - 원형 큐 구현</div>
+              <pre><code>{`class CircularQueue:
     """고정 크기 원형 큐 구현"""
     def __init__(self, capacity):
         self.capacity = capacity
@@ -236,47 +166,18 @@ cq.enqueue(3)
 print(cq.dequeue())   # 1
 cq.enqueue(4)
 cq.enqueue(5)
-cq.enqueue(6)         # rear가 앞으로 돌아감`}
-                </pre>
-              </div>
-            </section>
+cq.enqueue(6)         # rear가 앞으로 돌아감`}</code></pre>
+            </div>
 
-            {/* 우선순위 큐 */}
-            <section data-aos="fade-up" style={{ marginBottom: '56px' }}>
-              <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '16px' }}>
-                우선순위 큐 소개 (Priority Queue)
-              </h2>
-              <p style={{ fontSize: '16px', color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: '20px' }}>
-                우선순위 큐는 각 요소에 우선순위가 부여되어, 우선순위가 높은 요소가 먼저 제거되는 자료구조입니다.
-                일반적으로 힙(Heap) 자료구조로 구현하며, Python에서는 <code style={{ background: 'var(--bg-light-gray)', padding: '2px 6px', borderRadius: '4px', fontSize: '14px' }}>heapq</code> 모듈을 사용합니다.
-              </p>
+            <h2>우선순위 큐 소개 (Priority Queue)</h2>
+            <p>
+              우선순위 큐는 각 요소에 우선순위가 부여되어, 우선순위가 높은 요소가 먼저 제거되는 자료구조입니다.
+              일반적으로 힙(Heap) 자료구조로 구현하며, Python에서는 <code>heapq</code> 모듈을 사용합니다.
+            </p>
 
-              <div className="code-block" style={{
-                background: '#1e293b',
-                borderRadius: 'var(--radius-md)',
-                overflow: 'hidden',
-                marginBottom: '24px',
-              }}>
-                <div className="code-header" style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  padding: '12px 20px',
-                  background: '#334155',
-                  fontSize: '13px',
-                  color: '#94a3b8',
-                }}>
-                  <span>Python - 우선순위 큐 (heapq)</span>
-                </div>
-                <pre style={{
-                  padding: '20px',
-                  color: '#e2e8f0',
-                  fontSize: '14px',
-                  lineHeight: 1.7,
-                  overflow: 'auto',
-                  margin: 0,
-                }}>
-{`import heapq
+            <div className="code-block">
+              <div className="code-header">Python - 우선순위 큐 (heapq)</div>
+              <pre><code>{`import heapq
 
 # 최소 힙 기반 우선순위 큐
 pq = []
@@ -287,66 +188,27 @@ heapq.heappush(pq, (2, "중간 우선순위"))
 # 우선순위가 높은(숫자가 낮은) 순서로 제거
 print(heapq.heappop(pq))   # (1, '높은 우선순위')
 print(heapq.heappop(pq))   # (2, '중간 우선순위')
-print(heapq.heappop(pq))   # (3, '낮은 우선순위')`}
-                </pre>
-              </div>
-            </section>
+print(heapq.heappop(pq))   # (3, '낮은 우선순위')`}</code></pre>
+            </div>
 
-            {/* 큐의 활용 */}
-            <section data-aos="fade-up" style={{ marginBottom: '56px' }}>
-              <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '16px' }}>
-                큐의 활용
-              </h2>
+            <h2>큐의 활용</h2>
 
-              <div className="callout-box" style={{
-                background: 'var(--primary-blue-bg)',
-                border: '1px solid var(--primary-blue)',
-                borderRadius: 'var(--radius-md)',
-                padding: '24px 28px',
-                marginBottom: '24px',
-              }}>
-                <h4 style={{ color: 'var(--primary-blue)', fontWeight: 700, marginBottom: '12px', fontSize: '16px' }}>
-                  큐가 활용되는 대표적인 사례
-                </h4>
-                <ul style={{ color: 'var(--text-secondary)', lineHeight: 2, paddingLeft: '20px', margin: 0 }}>
-                  <li><strong>BFS (너비 우선 탐색)</strong> : 그래프나 트리에서 레벨 순서로 노드를 탐색합니다.</li>
-                  <li><strong>작업 스케줄링</strong> : 운영체제의 프로세스 스케줄링, 프린터 대기열 등에 활용됩니다.</li>
-                  <li><strong>버퍼 관리</strong> : 데이터의 생산 속도와 소비 속도가 다른 경우 중간 버퍼로 사용됩니다.</li>
-                  <li><strong>캐시 구현</strong> : FIFO 캐시 교체 정책에서 사용됩니다.</li>
-                  <li><strong>이벤트 처리</strong> : GUI 이벤트, 네트워크 패킷 처리 등에 활용됩니다.</li>
-                </ul>
-              </div>
+            <div className="callout-box">
+              <h3>큐가 활용되는 대표적인 사례</h3>
+              <ul>
+                <li><strong>BFS (너비 우선 탐색)</strong> : 그래프나 트리에서 레벨 순서로 노드를 탐색합니다.</li>
+                <li><strong>작업 스케줄링</strong> : 운영체제의 프로세스 스케줄링, 프린터 대기열 등에 활용됩니다.</li>
+                <li><strong>버퍼 관리</strong> : 데이터의 생산 속도와 소비 속도가 다른 경우 중간 버퍼로 사용됩니다.</li>
+                <li><strong>캐시 구현</strong> : FIFO 캐시 교체 정책에서 사용됩니다.</li>
+                <li><strong>이벤트 처리</strong> : GUI 이벤트, 네트워크 패킷 처리 등에 활용됩니다.</li>
+              </ul>
+            </div>
 
-              <h3 style={{ fontSize: '22px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '16px' }}>
-                BFS 예제
-              </h3>
+            <h3>BFS 예제</h3>
 
-              <div className="code-block" style={{
-                background: '#1e293b',
-                borderRadius: 'var(--radius-md)',
-                overflow: 'hidden',
-                marginBottom: '24px',
-              }}>
-                <div className="code-header" style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  padding: '12px 20px',
-                  background: '#334155',
-                  fontSize: '13px',
-                  color: '#94a3b8',
-                }}>
-                  <span>Python - BFS (너비 우선 탐색)</span>
-                </div>
-                <pre style={{
-                  padding: '20px',
-                  color: '#e2e8f0',
-                  fontSize: '14px',
-                  lineHeight: 1.7,
-                  overflow: 'auto',
-                  margin: 0,
-                }}>
-{`from collections import deque
+            <div className="code-block">
+              <div className="code-header">Python - BFS (너비 우선 탐색)</div>
+              <pre><code>{`from collections import deque
 
 def bfs(graph, start):
     """큐를 이용한 너비 우선 탐색"""
@@ -376,76 +238,27 @@ graph = {
     'F': ['C', 'E']
 }
 
-print(bfs(graph, 'A'))  # ['A', 'B', 'C', 'D', 'E', 'F']`}
-                </pre>
-              </div>
-            </section>
+print(bfs(graph, 'A'))  # ['A', 'B', 'C', 'D', 'E', 'F']`}</code></pre>
+            </div>
 
-            {/* 연습 문제 */}
-            <section data-aos="fade-up" style={{ marginBottom: '56px' }}>
-              <div className="exercise-box" style={{
-                background: 'var(--bg-light-gray)',
-                border: '1px solid var(--border-light)',
-                borderRadius: 'var(--radius-lg)',
-                padding: '28px 32px',
-              }}>
-                <h3 style={{ fontSize: '20px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '16px' }}>
-                  연습 문제
-                </h3>
-                <ol style={{ color: 'var(--text-secondary)', lineHeight: 2.0, paddingLeft: '20px', margin: 0 }}>
-                  <li>큐 두 개를 이용하여 스택을 구현하세요.</li>
-                  <li>원형 큐를 연결 리스트로 구현하세요.</li>
-                  <li>최근 N개의 요청에 대한 평균 응답 시간을 구하는 큐 기반 시스템을 설계하세요.</li>
-                  <li>큐를 이용하여 이진 트리의 레벨 순서 순회를 구현하세요.</li>
-                </ol>
-              </div>
-            </section>
+            <div className="exercise-box">
+              <h3>연습 문제</h3>
+              <ol>
+                <li>큐 두 개를 이용하여 스택을 구현하세요.</li>
+                <li>원형 큐를 연결 리스트로 구현하세요.</li>
+                <li>최근 N개의 요청에 대한 평균 응답 시간을 구하는 큐 기반 시스템을 설계하세요.</li>
+                <li>큐를 이용하여 이진 트리의 레벨 순서 순회를 구현하세요.</li>
+              </ol>
+            </div>
 
-            {/* Lesson Navigation */}
-            <nav className="lesson-nav" data-aos="fade-up" style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              padding: '24px 0',
-              borderTop: '1px solid var(--border-light)',
-            }}>
-              <Link to="/linear/stack" style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '12px 24px',
-                background: 'var(--bg-light-gray)',
-                color: 'var(--text-primary)',
-                borderRadius: 'var(--radius-md)',
-                textDecoration: 'none',
-                fontWeight: 600,
-                fontSize: '15px',
-                transition: 'var(--transition-base)',
-              }}>
-                <span style={{ fontSize: '18px' }}>&larr;</span>
-                이전: 스택
-              </Link>
-              <Link to="/linear/deque" style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '12px 24px',
-                background: 'var(--primary-blue)',
-                color: '#fff',
-                borderRadius: 'var(--radius-md)',
-                textDecoration: 'none',
-                fontWeight: 600,
-                fontSize: '15px',
-                transition: 'var(--transition-base)',
-              }}>
-                다음: 덱
-                <span style={{ fontSize: '18px' }}>&rarr;</span>
-              </Link>
-            </nav>
+            <div className="lesson-nav">
+              <Link to="/linear/stack" className="lesson-nav-btn prev">&larr; 이전: 스택</Link>
+              <Link to="/linear/deque" className="lesson-nav-btn next">다음: 덱 &rarr;</Link>
+            </div>
 
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 };

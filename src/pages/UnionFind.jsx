@@ -391,7 +391,7 @@ MST 완성! 총 가중치 = 1 + 2 + 3 = 6`}</code></pre>
 
             <div className="lesson-nav" data-aos="fade-up">
               <Link to="/advanced/segment-tree" className="lesson-nav-btn prev">&larr; 세그먼트 트리</Link>
-              <Link to="/practice/basic" className="lesson-nav-btn next">기초 문제 &rarr;</Link>
+              <Link to="/practice" className="lesson-nav-btn next">연습문제 &rarr;</Link>
             </div>
 
           </div>

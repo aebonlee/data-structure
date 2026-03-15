@@ -118,6 +118,71 @@
 
 ---
 
+## 2026-03-16 (v1.1.0) - CSS 전면 수정
+
+### 1. 문제 분석
+- 모든 페이지에서 인라인 스타일(`style={{...}}`)을 과도하게 사용하여 CSS 클래스가 제대로 적용되지 않음
+- Home.jsx의 CSS 클래스명이 site.css 정의와 불일치 (`hero` vs `hero-section`, `hero-buttons` vs `hero-actions` 등)
+- 인덱스 페이지들이 `onMouseEnter`/`onMouseLeave` 핸들러와 인라인 스타일로 구성됨
+- 레슨 페이지들의 `code-block`, `callout-box`, `exercise-box`, `lesson-nav` 등에 인라인 스타일이 CSS를 덮어씀
+
+### 2. Home.jsx 수정
+- `hero` → `hero-section` 클래스 변경
+- `hero-buttons` → `hero-actions` 변경
+- `btn btn-primary/secondary` → `hero-btn primary/secondary` 변경
+- `title-line` → `hero-title-line1`/`hero-title-line2` 변경
+- 파티클 배경 효과 제거 (CSS에 정의 없음)
+- `ct-intro-content`/`ct-intro-title`/`ct-intro-description` → `ct-intro`/`section-title`/`ct-description` 변경
+- `ct-intro-goals`/`ct-goals-title`/`ct-goals-list` → `learning-goals`/`goals-list` 변경
+- `curriculum-section-title` → `section-title` + `section-subtitle` 변경
+- 커리큘럼 카드에 `curriculum-step`, `curriculum-icon` 추가
+
+### 3. 인덱스 페이지 수정 (6개)
+- LinearIndex, NonlinearIndex, HashIndex, AlgorithmIndex, AdvancedIndex, PracticeIndex
+- 모든 인라인 스타일 제거
+- `<div className="page-header" style={{...}}>` → `<section className="page-header">`
+- `<section style={{...}}>` → `<section className="section curriculum-section">`
+- `onMouseEnter`/`onMouseLeave` 핸들러 제거
+- `curriculum-step`, `curriculum-icon`, `curriculum-card-title`, `curriculum-card-desc` CSS 클래스 적용
+- 각 토픽에 단계 번호(01., 02., ...) 및 이모지 아이콘 추가
+
+### 4. 레슨 페이지 수정 (23개)
+- WhatIsDS, Complexity, ArrayPage, LinkedList, StackPage, QueuePage, DequePage
+- TreePage, BinaryTree, BSTPage, HeapPage, GraphPage
+- HashTable, HashMap
+- BubbleSort, SelectionSort, InsertionSort, MergeSort, QuickSort, SearchAlgorithm
+- TriePage, SegmentTree, UnionFind
+- **공통 수정 사항:**
+  - 모든 인라인 `style={{...}}` 제거
+  - `<div className="page-header" style={{...}}>` → `<section className="page-header">`
+  - `<div className="lesson-content" style={{...}}>` → `<section className="section lesson-content">`
+  - `<div className="lesson-body" style={{maxWidth...}}>` → `<div className="lesson-body">`
+  - `code-block`, `code-header`, `pre`, `code` 태그에서 인라인 스타일 제거
+  - `callout-box`, `exercise-box` 인라인 스타일 제거
+  - `<nav className="lesson-nav" style={{...}}>` → `<div className="lesson-nav">`
+  - `lesson-nav-btn prev`/`lesson-nav-btn next` 클래스 통일
+  - 내부 `<section data-aos style={{...}}>` 래퍼 제거
+
+### 5. 연습문제 및 기타 페이지 수정
+- PracticeBasic, PracticeInter: 인라인 스타일 제거, 퀴즈 CSS 클래스 추가
+- References: 구조 확인 (이미 정상)
+- NotFound: 간소화 및 CSS 클래스 통일
+
+### 6. CSS 추가
+- `site.css`에 퀴즈 관련 CSS 클래스 추가:
+  - `.quiz-options-area`, `.quiz-option`, `.quiz-option--selected/--correct/--wrong`
+  - `.quiz-radio`, `.quiz-explanation`, `.quiz-submit-area`
+  - 다크 모드 오버라이드 포함
+
+### 7. 빌드 결과
+- 87개 모듈 변환 성공
+- 빌드 시간: 2.05초
+- CSS 번들: 101.32 KB (gzip: 17.60 KB) — 퀴즈 CSS 추가로 증가
+- JS 메인 번들: 254.30 KB (gzip: 81.41 KB)
+- 총 39개 청크 (코드 스플리팅)
+
+---
+
 ## 배포 정보
 - **GitHub Repository**: https://github.com/aebonlee/data-Structure
 - **배포 URL**: https://data-structure.dreamitbiz.com

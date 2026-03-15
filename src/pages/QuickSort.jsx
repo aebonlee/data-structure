@@ -12,97 +12,102 @@ const QuickSort = () => {
         description="퀵 정렬의 개념, 피벗 선택, 파티션 과정, 시간 복잡도(평균 O(n log n), 최악 O(n²)), Python 구현을 학습합니다."
       />
 
-      <div className="page-header" data-aos="fade-down">
+      <section className="page-header">
         <div className="container">
           <h1>퀵 정렬</h1>
-          <p className="page-header-desc">
+          <p>
             피벗을 기준으로 배열을 분할하여 정렬하는 분할 정복 알고리즘입니다.
             평균적으로 가장 빠른 범용 정렬 알고리즘 중 하나입니다.
           </p>
         </div>
-      </div>
+      </section>
 
-      <div className="lesson-content">
+      <section className="section lesson-content">
         <div className="container">
           <div className="lesson-body">
 
-            {/* 퀵 정렬의 개념 */}
-            <section className="lesson-section" data-aos="fade-up">
-              <h2>퀵 정렬의 개념</h2>
-              <p>
-                퀵 정렬(Quick Sort)은 1959년 토니 호어(Tony Hoare)가 발명한 정렬 알고리즘으로,
-                분할 정복 전략을 사용합니다. 배열에서 <strong>피벗(pivot)</strong>이라는 기준 요소를 선택하고,
-                피벗보다 작은 요소는 왼쪽, 큰 요소는 오른쪽으로 분할(partition)한 뒤, 각 부분을 재귀적으로 정렬합니다.
-              </p>
-              <p>
-                병합 정렬과 달리 제자리 정렬이 가능하며, 실제 데이터에서 캐시 효율이 뛰어나
-                평균적으로 가장 빠른 범용 정렬 알고리즘으로 널리 사용됩니다.
-              </p>
+            <div className="callout-box">
+              <h3>학습 목표</h3>
+              <ul>
+                <li>퀵 정렬의 개념과 분할 정복 전략을 이해한다.</li>
+                <li>피벗 선택 전략에 따른 성능 차이를 분석한다.</li>
+                <li>파티션 과정(Lomuto, Hoare)을 설명할 수 있다.</li>
+                <li>Python으로 퀵 정렬을 구현할 수 있다.</li>
+              </ul>
+            </div>
 
-              <div className="callout-box" data-aos="fade-up">
-                <strong>병합 정렬과의 차이:</strong> 병합 정렬은 "나눈 뒤 합칠 때" 정렬이 일어나지만,
-                퀵 정렬은 "나누는 과정(파티션)"에서 정렬이 일어납니다. 이 때문에 병합 단계가 필요 없습니다.
-              </div>
-            </section>
+            <h2>퀵 정렬의 개념</h2>
+            <p>
+              퀵 정렬(Quick Sort)은 1959년 토니 호어(Tony Hoare)가 발명한 정렬 알고리즘으로,
+              분할 정복 전략을 사용합니다. 배열에서 <strong>피벗(pivot)</strong>이라는 기준 요소를 선택하고,
+              피벗보다 작은 요소는 왼쪽, 큰 요소는 오른쪽으로 분할(partition)한 뒤, 각 부분을 재귀적으로 정렬합니다.
+            </p>
+            <p>
+              병합 정렬과 달리 제자리 정렬이 가능하며, 실제 데이터에서 캐시 효율이 뛰어나
+              평균적으로 가장 빠른 범용 정렬 알고리즘으로 널리 사용됩니다.
+            </p>
 
-            {/* 피벗 선택 */}
-            <section className="lesson-section" data-aos="fade-up">
-              <h2>피벗 선택</h2>
-              <p>
-                피벗 선택은 퀵 정렬의 성능에 큰 영향을 미칩니다.
-                이상적으로는 배열을 균등하게 분할하는 중간값(median)이 좋지만,
-                정확한 중간값을 찾는 것도 비용이 듭니다.
-              </p>
+            <div className="callout-box">
+              <h3>병합 정렬과의 차이</h3>
+              <ul>
+                <li>병합 정렬은 "나눈 뒤 합칠 때" 정렬이 일어나지만, 퀵 정렬은 "나누는 과정(파티션)"에서 정렬이 일어납니다.</li>
+                <li>이 때문에 병합 단계가 필요 없습니다.</li>
+              </ul>
+            </div>
 
-              <table className="lesson-table" data-aos="fade-up">
-                <thead>
-                  <tr>
-                    <th>피벗 선택 전략</th>
-                    <th>방법</th>
-                    <th>장단점</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>첫 번째 요소</td>
-                    <td>arr[left]</td>
-                    <td>간단하지만, 정렬된 배열에서 최악 O(n²)</td>
-                  </tr>
-                  <tr>
-                    <td>마지막 요소</td>
-                    <td>arr[right]</td>
-                    <td>간단하지만, 정렬된 배열에서 최악 O(n²)</td>
-                  </tr>
-                  <tr>
-                    <td>중간 요소</td>
-                    <td>arr[(left+right)//2]</td>
-                    <td>정렬된 배열에서 좋은 성능</td>
-                  </tr>
-                  <tr>
-                    <td>중간값의 중간값 (Median of 3)</td>
-                    <td>처음, 중간, 끝 중 중간값</td>
-                    <td>실무에서 가장 많이 사용, 최악 회피</td>
-                  </tr>
-                  <tr>
-                    <td>랜덤 선택</td>
-                    <td>random.choice</td>
-                    <td>확률적으로 최악 회피</td>
-                  </tr>
-                </tbody>
-              </table>
-            </section>
+            <h2>피벗 선택</h2>
+            <p>
+              피벗 선택은 퀵 정렬의 성능에 큰 영향을 미칩니다.
+              이상적으로는 배열을 균등하게 분할하는 중간값(median)이 좋지만,
+              정확한 중간값을 찾는 것도 비용이 듭니다.
+            </p>
 
-            {/* 파티션 과정 */}
-            <section className="lesson-section" data-aos="fade-up">
-              <h2>파티션 과정</h2>
-              <p>
-                파티션(Partition)은 피벗을 기준으로 배열을 두 부분으로 나누는 핵심 연산입니다.
-                배열 [8, 3, 1, 7, 0, 10, 2]에서 피벗을 마지막 요소(2)로 선택한 경우를 살펴봅시다.
-              </p>
+            <table className="lesson-table">
+              <thead>
+                <tr>
+                  <th>피벗 선택 전략</th>
+                  <th>방법</th>
+                  <th>장단점</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>첫 번째 요소</td>
+                  <td>arr[left]</td>
+                  <td>간단하지만, 정렬된 배열에서 최악 O(n²)</td>
+                </tr>
+                <tr>
+                  <td>마지막 요소</td>
+                  <td>arr[right]</td>
+                  <td>간단하지만, 정렬된 배열에서 최악 O(n²)</td>
+                </tr>
+                <tr>
+                  <td>중간 요소</td>
+                  <td>arr[(left+right)//2]</td>
+                  <td>정렬된 배열에서 좋은 성능</td>
+                </tr>
+                <tr>
+                  <td>중간값의 중간값 (Median of 3)</td>
+                  <td>처음, 중간, 끝 중 중간값</td>
+                  <td>실무에서 가장 많이 사용, 최악 회피</td>
+                </tr>
+                <tr>
+                  <td>랜덤 선택</td>
+                  <td>random.choice</td>
+                  <td>확률적으로 최악 회피</td>
+                </tr>
+              </tbody>
+            </table>
 
-              <div className="code-block" data-aos="fade-up">
-                <div className="code-header">Lomuto 파티션 과정</div>
-                <pre><code>{`배열: [8, 3, 1, 7, 0, 10, 2]  피벗 = 2
+            <h2>파티션 과정</h2>
+            <p>
+              파티션(Partition)은 피벗을 기준으로 배열을 두 부분으로 나누는 핵심 연산입니다.
+              배열 [8, 3, 1, 7, 0, 10, 2]에서 피벗을 마지막 요소(2)로 선택한 경우를 살펴봅시다.
+            </p>
+
+            <div className="code-block">
+              <div className="code-header">Lomuto 파티션 과정</div>
+              <pre><code>{`배열: [8, 3, 1, 7, 0, 10, 2]  피벗 = 2
        i                         (i는 피벗보다 작은 영역의 경계)
        j→                        (j는 탐색 포인터)
 
@@ -128,86 +133,85 @@ j=5: 10 > 2 → 건너뜀
 
 결과: [1, 0] | 2 | [7, 3, 10, 8]
        < 2    =2      > 2`}</code></pre>
-              </div>
+            </div>
 
-              <div className="callout-box" data-aos="fade-up">
-                <strong>파티션의 핵심:</strong> 파티션이 끝나면 피벗은 정렬된 최종 위치에 놓이게 됩니다.
-                피벗 왼쪽의 모든 요소는 피벗보다 작고, 오른쪽의 모든 요소는 피벗보다 큽니다.
-              </div>
-            </section>
+            <div className="callout-box">
+              <h3>파티션의 핵심</h3>
+              <ul>
+                <li>파티션이 끝나면 피벗은 정렬된 최종 위치에 놓이게 됩니다.</li>
+                <li>피벗 왼쪽의 모든 요소는 피벗보다 작고, 오른쪽의 모든 요소는 피벗보다 큽니다.</li>
+              </ul>
+            </div>
 
-            {/* 시간 복잡도 */}
-            <section className="lesson-section" data-aos="fade-up">
-              <h2>시간 복잡도</h2>
+            <h2>시간 복잡도</h2>
 
-              <table className="lesson-table" data-aos="fade-up">
-                <thead>
-                  <tr>
-                    <th>경우</th>
-                    <th>시간 복잡도</th>
-                    <th>발생 조건</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>최선 (Best)</td>
-                    <td>O(n log n)</td>
-                    <td>피벗이 항상 중간값일 때 (균등 분할)</td>
-                  </tr>
-                  <tr>
-                    <td>평균 (Average)</td>
-                    <td>O(n log n)</td>
-                    <td>무작위 데이터에서의 기대값</td>
-                  </tr>
-                  <tr>
-                    <td>최악 (Worst)</td>
-                    <td>O(n<sup>2</sup>)</td>
-                    <td>피벗이 항상 최솟값/최댓값일 때 (불균등 분할)</td>
-                  </tr>
-                </tbody>
-              </table>
+            <table className="lesson-table">
+              <thead>
+                <tr>
+                  <th>경우</th>
+                  <th>시간 복잡도</th>
+                  <th>발생 조건</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>최선 (Best)</td>
+                  <td>O(n log n)</td>
+                  <td>피벗이 항상 중간값일 때 (균등 분할)</td>
+                </tr>
+                <tr>
+                  <td>평균 (Average)</td>
+                  <td>O(n log n)</td>
+                  <td>무작위 데이터에서의 기대값</td>
+                </tr>
+                <tr>
+                  <td>최악 (Worst)</td>
+                  <td>O(n<sup>2</sup>)</td>
+                  <td>피벗이 항상 최솟값/최댓값일 때 (불균등 분할)</td>
+                </tr>
+              </tbody>
+            </table>
 
-              <table className="lesson-table" data-aos="fade-up">
-                <thead>
-                  <tr>
-                    <th>특성</th>
-                    <th>값</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>공간 복잡도</td>
-                    <td>O(log n) 평균 (재귀 스택), O(n) 최악</td>
-                  </tr>
-                  <tr>
-                    <td>제자리 정렬</td>
-                    <td>Yes - 추가 배열 불필요</td>
-                  </tr>
-                  <tr>
-                    <td>안정 정렬</td>
-                    <td>No - 파티션 과정에서 순서 변경 가능</td>
-                  </tr>
-                  <tr>
-                    <td>캐시 효율</td>
-                    <td>우수 - 연속 메모리 접근</td>
-                  </tr>
-                </tbody>
-              </table>
+            <table className="lesson-table">
+              <thead>
+                <tr>
+                  <th>특성</th>
+                  <th>값</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>공간 복잡도</td>
+                  <td>O(log n) 평균 (재귀 스택), O(n) 최악</td>
+                </tr>
+                <tr>
+                  <td>제자리 정렬</td>
+                  <td>Yes - 추가 배열 불필요</td>
+                </tr>
+                <tr>
+                  <td>안정 정렬</td>
+                  <td>No - 파티션 과정에서 순서 변경 가능</td>
+                </tr>
+                <tr>
+                  <td>캐시 효율</td>
+                  <td>우수 - 연속 메모리 접근</td>
+                </tr>
+              </tbody>
+            </table>
 
-              <div className="callout-box" data-aos="fade-up">
-                <strong>최악의 경우를 피하려면:</strong> 이미 정렬된 배열에서 첫 번째/마지막 요소를 피벗으로 선택하면
-                매번 1 : n-1로 불균등 분할되어 O(n²)이 됩니다.
-                Median of 3이나 랜덤 피벗 선택을 사용하면 실질적으로 최악의 경우를 피할 수 있습니다.
-              </div>
-            </section>
+            <div className="callout-box">
+              <h3>최악의 경우를 피하려면</h3>
+              <ul>
+                <li>이미 정렬된 배열에서 첫 번째/마지막 요소를 피벗으로 선택하면 매번 1 : n-1로 불균등 분할되어 O(n²)이 됩니다.</li>
+                <li>Median of 3이나 랜덤 피벗 선택을 사용하면 실질적으로 최악의 경우를 피할 수 있습니다.</li>
+              </ul>
+            </div>
 
-            {/* 구현 */}
-            <section className="lesson-section" data-aos="fade-up">
-              <h2>구현</h2>
+            <h2>구현</h2>
 
-              <div className="code-block" data-aos="fade-up">
-                <div className="code-header">퀵 정렬 - 간결한 Python 구현</div>
-                <pre><code>{`def quick_sort(arr):
+            <div className="code-block">
+              <div className="code-header">퀵 정렬 - 간결한 Python 구현</div>
+              <pre><code>{`def quick_sort(arr):
     """간결한 퀵 정렬 (새 리스트 생성 방식)"""
     if len(arr) <= 1:
         return arr
@@ -222,11 +226,11 @@ j=5: 10 > 2 → 건너뜀
 # 테스트
 data = [3, 6, 8, 10, 1, 2, 1]
 print(quick_sort(data))  # [1, 1, 2, 3, 6, 8, 10]`}</code></pre>
-              </div>
+            </div>
 
-              <div className="code-block" data-aos="fade-up">
-                <div className="code-header">퀵 정렬 - 제자리(In-place) 구현</div>
-                <pre><code>{`def quick_sort_inplace(arr, low=0, high=None):
+            <div className="code-block">
+              <div className="code-header">퀵 정렬 - 제자리(In-place) 구현</div>
+              <pre><code>{`def quick_sort_inplace(arr, low=0, high=None):
     """제자리 퀵 정렬 (Lomuto 파티션)"""
     if high is None:
         high = len(arr) - 1
@@ -252,11 +256,11 @@ def partition(arr, low, high):
 data = [10, 7, 8, 9, 1, 5]
 quick_sort_inplace(data)
 print(data)  # [1, 5, 7, 8, 9, 10]`}</code></pre>
-              </div>
+            </div>
 
-              <div className="code-block" data-aos="fade-up">
-                <div className="code-header">최적화: Median of 3 + 랜덤 피벗</div>
-                <pre><code>{`import random
+            <div className="code-block">
+              <div className="code-header">최적화: Median of 3 + 랜덤 피벗</div>
+              <pre><code>{`import random
 
 def quick_sort_optimized(arr, low=0, high=None):
     """최적화된 퀵 정렬"""
@@ -315,11 +319,9 @@ def insertion_sort_range(arr, low, high):
 data = list(range(20, 0, -1))  # 역순 배열
 quick_sort_optimized(data)
 print(data)  # [1, 2, 3, ..., 20]`}</code></pre>
-              </div>
-            </section>
+            </div>
 
-            {/* 연습 문제 */}
-            <div className="exercise-box" data-aos="fade-up">
+            <div className="exercise-box">
               <h3>연습 문제</h3>
               <ol>
                 <li>배열 [7, 2, 1, 6, 8, 5, 3, 4]에서 피벗을 마지막 요소(4)로 하여 파티션 과정을 손으로 추적하세요.</li>
@@ -329,20 +331,14 @@ print(data)  # [1, 2, 3, ..., 20]`}</code></pre>
               </ol>
             </div>
 
+            <div className="lesson-nav">
+              <Link to="/algorithm/merge-sort" className="lesson-nav-btn prev">&larr; 병합 정렬</Link>
+              <Link to="/algorithm/search" className="lesson-nav-btn next">탐색 알고리즘 &rarr;</Link>
+            </div>
+
           </div>
         </div>
-      </div>
-
-      <nav className="lesson-nav" data-aos="fade-up">
-        <Link to="/algorithm/merge-sort" className="lesson-nav-prev">
-          <span className="lesson-nav-label">이전</span>
-          <span className="lesson-nav-title">병합 정렬</span>
-        </Link>
-        <Link to="/algorithm/search" className="lesson-nav-next">
-          <span className="lesson-nav-label">다음</span>
-          <span className="lesson-nav-title">탐색 알고리즘</span>
-        </Link>
-      </nav>
+      </section>
     </>
   );
 };
