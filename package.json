@@ -1,5 +1,7 @@
 {
   "name": "data-structure",
+  "description": "자료구조 학습 사이트",
+  "homepage": "https://data-structure.dreamitbiz.com",
   "private": true,
   "version": "1.0.0",
   "type": "module",
