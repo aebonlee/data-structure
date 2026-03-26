@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh repo view:*)",
+      "Bash(dir:*)",
+      "Bash(curl:*)",
+      "Bash(test:*)",
+      "Bash(printenv:*)",
+      "Bash(env:*)",
+      "Bash(node:*)"
+    ]
+  }
+}
