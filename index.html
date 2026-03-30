@@ -16,6 +16,12 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Data Structure | 자료구조 학습" />
     <meta name="twitter:description" content="자료구조를 기초부터 고급까지 체계적으로 학습하는 교육 플랫폼" />
+    <meta name="twitter:image" content="https://data-structure.dreamitbiz.com/favicon.svg" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://data-structure.dreamitbiz.com" />
+    <meta property="og:image" content="https://data-structure.dreamitbiz.com/favicon.svg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <title>Data Structure | 자료구조 학습</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,5 +31,18 @@
   </head>
   <body>
     <div id="root"></div>
+    <!-- GitHub Pages SPA redirect handler (companion to 404.html) -->
+    <script type="text/javascript">
+      (function(l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function(s) {
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location))
+    </script>
   </body>
 </html>

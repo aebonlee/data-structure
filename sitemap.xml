@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Home -->
+  <url>
+    <loc>https://data-structure.dreamitbiz.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Main Category Indexes -->
+  <url>
+    <loc>https://data-structure.dreamitbiz.com/linear</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://data-structure.dreamitbiz.com/nonlinear</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://data-structure.dreamitbiz.com/hash</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://data-structure.dreamitbiz.com/algorithm</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://data-structure.dreamitbiz.com/advanced</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://data-structure.dreamitbiz.com/practice</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- DS Intro -->
+  <url>
+    <loc>https://data-structure.dreamitbiz.com/intro/what-is-ds</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://data-structure.dreamitbiz.com/intro/complexity</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Linear DS -->
+  <url>
+    <loc>https://data-structure.dreamitbiz.com/linear/array</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://data-structure.dreamitbiz.com/linear/linked-list</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://data-structure.dreamitbiz.com/linear/stack</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://data-structure.dreamitbiz.com/linear/queue</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://data-structure.dreamitbiz.com/linear/deque</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Non-linear DS -->
+  <url>
+    <loc>https://data-structure.dreamitbiz.com/nonlinear/tree</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://data-structure.dreamitbiz.com/nonlinear/binary-tree</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://data-structure.dreamitbiz.com/nonlinear/bst</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://data-structure.dreamitbiz.com/nonlinear/heap</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://data-structure.dreamitbiz.com/nonlinear/graph</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Hash DS -->
+  <url>
+    <loc>https://data-structure.dreamitbiz.com/hash/hash-table</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://data-structure.dreamitbiz.com/hash/hash-map</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Algorithms -->
+  <url>
+    <loc>https://data-structure.dreamitbiz.com/algorithm/bubble-sort</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://data-structure.dreamitbiz.com/algorithm/selection-sort</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://data-structure.dreamitbiz.com/algorithm/insertion-sort</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://data-structure.dreamitbiz.com/algorithm/merge-sort</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://data-structure.dreamitbiz.com/algorithm/quick-sort</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://data-structure.dreamitbiz.com/algorithm/search</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Advanced DS -->
+  <url>
+    <loc>https://data-structure.dreamitbiz.com/advanced/trie</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://data-structure.dreamitbiz.com/advanced/segment-tree</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://data-structure.dreamitbiz.com/advanced/union-find</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Practice -->
+  <url>
+    <loc>https://data-structure.dreamitbiz.com/practice/basic</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://data-structure.dreamitbiz.com/practice/intermediate</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://data-structure.dreamitbiz.com/practice/advanced</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://data-structure.dreamitbiz.com/practice/real</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- References -->
+  <url>
+    <loc>https://data-structure.dreamitbiz.com/references</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+</urlset>
