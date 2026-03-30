@@ -6,7 +6,7 @@ import { copyFileSync } from 'fs'
 const copy404Plugin = () => ({
   name: 'copy-404',
   closeBundle() {
-    copyFileSync(resolve('dist/index.html'), resolve('dist/404.html'))
+    copyFileSync(resolve('public/404.html'), resolve('dist/404.html'))
   }
 })
 
