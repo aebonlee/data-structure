@@ -1,1 +1,0 @@
-import{r as o}from"./index-xb75CwLC.js";const a=({title:t,description:e})=>(o.useEffect(()=>{if(t&&(document.title=t),e){const r=document.querySelector('meta[name="description"]');r&&r.setAttribute("content",e)}},[t,e]),null);export{a as S};
