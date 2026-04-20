@@ -180,17 +180,13 @@ const Navbar = (): React.ReactElement => {
               </svg>
             </button>
             {isAuthenticated ? (
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <span style={{ fontSize: '13px', color: 'var(--text-secondary, #666)', maxWidth: '120px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                  {user?.email}
-                </span>
-                <button
-                  onClick={() => logout()}
-                  style={{ background: 'var(--primary-color, #0046C8)', color: '#fff', border: 'none', padding: '6px 14px', borderRadius: '6px', fontSize: '13px', fontWeight: 600, cursor: 'pointer', whiteSpace: 'nowrap' }}
-                >
-                  로그아웃
-                </button>
-              </div>
+              <button
+                onClick={() => logout()}
+                title={user?.email ?? ''}
+                style={{ background: 'var(--primary-color, #0046C8)', color: '#fff', border: 'none', padding: '6px 14px', borderRadius: '6px', fontSize: '13px', fontWeight: 600, cursor: 'pointer', whiteSpace: 'nowrap' }}
+              >
+                로그아웃
+              </button>
             ) : (
               <Link
                 to="/login"
