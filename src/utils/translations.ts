@@ -34,6 +34,7 @@ interface TranslationNav {
   practiceAdvanced: string;
   practiceReal: string;
   references: string;
+  about: string;
 }
 
 interface TranslationHome {
@@ -106,6 +107,7 @@ export const translations: Translations = {
         practiceAdvanced: '고급 문제',
         practiceReal: '실전 문제',
         references: '참고자료',
+        about: '소개',
       },
       home: {
         heroDesc: '배열부터 그래프까지, 핵심 자료구조와 알고리즘을 단계별로 학습하세요.',
@@ -165,8 +167,8 @@ export const translations: Translations = {
         practiceAdvanced: 'Advanced',
         practiceReal: 'Practical',
         references: 'References',
-            about: 'About',
-    },
+        about: 'About',
+      },
       home: {
         heroDesc: 'Learn core data structures and algorithms step by step, from arrays to graphs.',
         startLearning: 'Start Learning',
