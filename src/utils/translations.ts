@@ -165,7 +165,8 @@ export const translations: Translations = {
         practiceAdvanced: 'Advanced',
         practiceReal: 'Practical',
         references: 'References',
-      },
+            about: 'About',
+    },
       home: {
         heroDesc: 'Learn core data structures and algorithms step by step, from arrays to graphs.',
         startLearning: 'Start Learning',
